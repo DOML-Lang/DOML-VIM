@@ -14,27 +14,37 @@ if !exists("main_syntax")
 	let main_syntax = 'DOML'
 endif
 
-syntax keyword DOMLKeyword System
-syntax keyword DOMLBoolean true false
+syn keyword DOMLKeyword System
+syn keyword DOMLBoolean true false
 
-syntax match DOMLNumber "\v<\d+>"
-syntax match DOMLNumber "\v<\d+\.\d+>"
-syntax match DOMLNumber "\v<0x\x+([Pp]-?)?\x+>"
-syntax match DOMLNumber "\v<0x\x+([Pp]-?)?\x+>"
-syntax match DOMLNumber "\v<0b[01]+>"
-syntax match DOMLNumber "\v<0o\o+>"
+syn match DOMLInteger "\<-\=\d\+\%([Ee][-+]\=\d\+\)\=\>"    " Standard Int
+syn match DOMLInteger "\<-\=0[xX]\x\+\>"					" Hexadecimal
+syn match DOMLInteger "\<-\=0\o\+\>"						" Octal
+syn match DOMLIntegerError "\<-\=0\o*[89]\d*\>"				" Octal Error
+syn match DOMLInteger "\<-\=0\b\+\>"                        " Binary
+syn match DOMLIntegerError "\<-\=0\b*[23456789]\d*\>"		" Binary Error
+
+hi def link DOMLInteger Number
+hi def link DOMLIntegerError Error
+
+syn match DOMLNumber "\<-\=\d\+\.\d*\%([Ee][-+]\=\d\+\)\=\>"
+syn match DOMLNumber "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
+syn match DOMLNumber "\<-\=\$\d\+\.\d*\%([Ee][-+]\=\d\+\)\=\>"
+syn match DOMLNumber "\<-\=\$\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
+
+hi def link DOMLNumber Float
 
 syntax region DOMLComment start="//" end="$"
 syntax region DOMLBlockComment start="/\*" end="\*/"
 
 syntax region DOMLString start=/"/ skip=/\\"/ end=/"/
 
-highlight link DOMLKeyword Keyword
-highlight link DOMLString String
-highlight link DOMLNumber Number
-highlight link DOMLComment Comment
-highlight link DOMLBoolean Boolean
-highlight link DOMLBlockComment Comment
+hi def link DOMLKeyword Keyword
+hi def link DOMLString String
+hi def link DOMLNumber Number
+hi def link DOMLComment Comment
+hi def link DOMLBoolean Boolean
+hi def link DOMLBlockComment Comment
 
 syntax sync minlines=200
 syntax sync maxlines=500
