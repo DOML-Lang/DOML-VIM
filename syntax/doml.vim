@@ -27,8 +27,6 @@ syntax match DOMLNumber "\v<0o\o+>"
 syntax match DOMLComment "\v//.*$"
 syntax region DOMLBlockComment start="/*" end="*/"
 
-syntax match DOMLOperator "\%(@\|;\|...\|.)=\?"
-
 syntax region DOMLString start=/"/ skip=/\\"/ end=/"/
 
 highlight link DOMLKeyword Keyword
