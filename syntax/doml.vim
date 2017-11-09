@@ -24,8 +24,8 @@ syntax match DOMLNumber "\v<0x\x+([Pp]-?)?\x+>"
 syntax match DOMLNumber "\v<0b[01]+>"
 syntax match DOMLNumber "\v<0o\o+>"
 
-syntax match DOMLComment "\v//.*$"
-syntax region DOMLBlockComment start="/*" end="*/"
+syntax region DOMLComment start="//" end="$"
+syntax region DOMLBlockComment start="/\*" end="\*/"
 
 syntax region DOMLString start=/"/ skip=/\\"/ end=/"/
 
