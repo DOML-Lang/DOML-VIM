@@ -19,10 +19,10 @@ syn keyword DOMLBoolean true false
 
 syn match DOMLInteger "\<-\=\d\+\%([Ee][-+]\=\d\+\)\=\>"    " Standard Int
 syn match DOMLInteger "\<-\=0[xX]\x\+\>"					" Hexadecimal
-syn match DOMLInteger "\<-\=0\o\+\>"						" Octal
-syn match DOMLIntegerError "\<-\=0\o*[89]\d*\>"				" Octal Error
-syn match DOMLInteger "\<-\=0\b\+\>"                        " Binary
-syn match DOMLIntegerError "\<-\=0\b*[23456789]\d*\>"		" Binary Error
+syn match DOMLInteger "\<-\=0[oO]\o\+\>"						" Octal
+syn match DOMLIntegerError "\<-\=0[oO]\o*[89]\d*\>"				" Octal Error
+syn match DOMLInteger "\<-\=0[bB]\b\+\>"                        " Binary
+syn match DOMLIntegerError "\<-\=0[bB]\b*[23456789]\d*\>"		" Binary Error
 
 hi def link DOMLInteger Number
 hi def link DOMLIntegerError Error
@@ -32,7 +32,7 @@ syn match DOMLNumber "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
 syn match DOMLNumber "\<-\=\$\d\+\.\d*\%([Ee][-+]\=\d\+\)\=\>"
 syn match DOMLNumber "\<-\=\$\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
 
-hi def link DOMLNumber Float
+hi def link DOMLNumber Number
 
 syntax region DOMLComment start="//" end="$"
 syntax region DOMLBlockComment start="/\*" end="\*/"
