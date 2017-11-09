@@ -1,0 +1,16 @@
+// This is a comment
+// Construct a new System.Color
+@ Test        = System.Color ...
+;             .RGB             = 255, 64, 128 // Implicit 'array'
+
+@ TheSame     = System.Color ...
+;             .RGB(Normalised) = 1, 0.25, 0.5, // You can have trailing commas
+
+@ AgainSame   = System.Color ...
+;             .RGB(Hex)        = 0xFF4080
+;             .Name            = "OtherName"
+
+/* Multi Line Comment Blocks are great */
+@ Copy        = System.Color ...
+;             .RGB             = Test.R, Test.G, Test.B // Reference other objects
+;             .Name            = "Copy"
