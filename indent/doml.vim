@@ -14,19 +14,23 @@ finish
 
 let b:did_indent = 1
 
-setlocal nosmartindent
+setlocal nolisp
+setlocal autoindent
 
-setlocal indentexpr=GetDOMLIndent()
-setlocal indentkeys=0{,0},0),0[,
+setlocal indentexpr=GetDOMLIndent(v:lnum)
+setlocal indentkeys=;,@,=
 
 " Only build function once
 if exists("*GetDOMLIndent")
 	finish
 endif
 
-let s:cpo_save = &cpo
-set cpo&vim
-
-" 1. Variables
-
+function! s:get_line_trimmed(lnum)
+	" Get the line without any comments
+	" Use syntax highlighting attributes when possible
+	let line = getline(a:lnum)
+	let line_len = strlen(line)
+	if has('syntax_items')
+		" If the last character is a comment do a binary search
+		if synIDattr(synID(a:lnum, line_len, 1), "name") =~ 'Comment'
 

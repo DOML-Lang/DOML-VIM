@@ -1,1 +1,2 @@
-autocmd BufNewFile,BufRead *.doml setlocal filetype=DOML
+" ftdetect/DOML.vim
+autocmd BufNewFile,BufRead *.doml setfiletype DOML

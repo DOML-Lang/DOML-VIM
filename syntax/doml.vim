@@ -20,23 +20,23 @@ syntax keyword DOMLBoolean true false
 syntax match DOMLNumber "\v<\d+>"
 syntax match DOMLNumber "\v<\d+\.\d+>"
 syntax match DOMLNumber "\v<0x\x+([Pp]-?)?\x+>"
-syntax match DOMLNumber "\v<Lx\d+>"
-syntax match SSMNumber "\v<Sx\d+>"
-syntax match SSMNumber "\v<Dx\d+\.\d+>"
+syntax match DOMLNumber "\v<0x\x+([Pp]-?)?\x+>"
+syntax match DOMLNumber "\v<0b[01]+>"
+syntax match DOMLNumber "\v<0o\o+>"
 
-syntax match SSMComment "\v//.*$"
-syntax region SSMBlockComment start="/*" end="*/"
+syntax match DOMLComment "\v//.*$"
+syntax region DOMLBlockComment start="/*" end="*/"
 
-syntax match SSMOperator "\%(@\|;\|...\|.)=\?"
+syntax match DOMLOperator "\%(@\|;\|...\|.)=\?"
 
-syntax region SSMString start=/"/ skip=/\\"/ end=/"/
+syntax region DOMLString start=/"/ skip=/\\"/ end=/"/
 
-highlight link SSMKeyword Keyword
-highlight link SSMString String
-highlight link SSMNumber Number
-highlight link SSMComment Comment
-highlight link SSMBoolean Boolean
-highlight link SSMBlockComment Comment
+highlight link DOMLKeyword Keyword
+highlight link DOMLString String
+highlight link DOMLNumber Number
+highlight link DOMLComment Comment
+highlight link DOMLBoolean Boolean
+highlight link DOMLBlockComment Comment
 
 syntax sync minlines=200
 syntax sync maxlines=500

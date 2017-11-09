@@ -1,4 +1,4 @@
-" Vim syntax File
+" Vim ftplugin File
 " Language:		DOML
 " Maintainer:	Braedon Wooding <braedonww@gmail.com> https://github.com/DOML-DataOrientedMarkupLanguage/DOML-VIM
 " Last Change:  2017-10-09 (YY-MM-DD)
@@ -12,7 +12,8 @@ if !exists("g:vim_doml_warnings")
 end
 
 setlocal commentstring=//\ %s
-setlocal iskeyword+=;,@-@
+" setlocal iskeyword+=;,@-@
 setlocal tabstop=2
 setlocal softtabstop=2
 setlocal shiftwidth=2
+setlocal completefunc=syntaxcomplete#Complete
