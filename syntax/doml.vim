@@ -21,8 +21,8 @@ syn match DOMLInteger "\<-\=\d\+\%([Ee][-+]\=\d\+\)\=\>"    " Standard Int
 syn match DOMLInteger "\<-\=0[xX]\x\+\>"					" Hexadecimal
 syn match DOMLInteger "\<-\=0[oO]\o\+\>"						" Octal
 syn match DOMLIntegerError "\<-\=0[oO]\o*[89]\d*\>"				" Octal Error
-syn match DOMLInteger "\<-\=0[bB]\b\+\>"                        " Binary
-syn match DOMLIntegerError "\<-\=0[bB]\b*[23456789]\d*\>"		" Binary Error
+syn match DOMLInteger "\<-\=0[bB][01]\+\>"                        " Binary
+syn match DOMLIntegerError "\<-\=0[bB][01]*[23456789]\d*\>"		" Binary Error
 
 hi def link DOMLInteger Number
 hi def link DOMLIntegerError Error

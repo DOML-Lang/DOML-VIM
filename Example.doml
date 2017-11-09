@@ -9,7 +9,7 @@
 @ AgainSame   = System.Color ...
 ;             .RGB(Hex)        = 0xFF4080
 ;             .Name            = "OtherName"
-;							.X							 = 0o122
+;							.X							 = 0b01
 
 /* Multi Line Comment Blocks are great */
 @ Copy        = System.Color ...
